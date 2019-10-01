@@ -5,13 +5,17 @@ var axios = require("axios");
 
 //spotify//
 var Spotify = require("node-spotify-api")
-var spotify = new Spotify(keys.spotify)
-    // id: f3567dbd9cc34c03adb013fb590d56ce,
-    // secret: 15dc33dbbe32430fa48192333cb9e8fe 
+var spotify = new Spotify(keys.spotify);
+// id: f3567dbd9cc34c03adb013fb590d56ce,
+// secret: 15dc33dbbe32430fa48192333cb9e8fe 
 
+//for concerts
+var omdb= (keys.omdb);
+var bamsontown = (keys.bansintown);
 
+//for doThis
+var fs = require("fs");
 //user input//
-
 var command = process.argv[2]
 var input = process.argv[3]
 
@@ -35,22 +39,35 @@ function getMovie(input) {
 
 //launch spotify// 
 //key: 15dc33dbbe32430fa48192333cb9e8fe//
-function findSong(input) { 
+function findSong(input) {
     console.log("inside spotify-this-song")
-//launch spotify// 
+    //launch spotify// 
     axios.get("https://api.spotify.com/v1/tracks/15dc33dbbe32430fa48192333cb9e8fe")
-    spotify.search({ type: 'track', query: input }, function(err, data) {
-      if (err) {
-        return console.log('Error occurred: ' + err);
-      }
-     
-    console.log(data); 
-    });
+
+    return console.log('Error occurred: ' + err);
+    {
+        console.log(`------------------`);
+        console.log(`This is what I found`);
+        spotify.search({ type: 'track', query: input }, function (err, data) {
+        }
+        if (err) { 
+            var spotifyArr = data.tracks.items;
+
+            for(i =0; i<spotifyArr.length; i++) {
+                console.log("song: " + spotifydata.Title)
+                console.log("year: " + spotifydata.Year)
+                console.log("realsed: " + spotifydata.Released)
+                console.log("director: " + spotifydata.Director)
+                console.log("artist: " + spotifydata.Artists)
+                 }
+                 {
+        console.log(data);
+    }
 }
 
 function showConcert() {
-console.log("inside concert-this") 
-axios.get("https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp")
+    console.log("inside concert-this")
+    axios.get("https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp")
 
 
 }
@@ -75,5 +92,4 @@ function startProg(command, input) {
     }
 }
 startProg(command, input);
-
-// node liri.js movie-this "wonder women"
+    
