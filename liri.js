@@ -10,7 +10,7 @@ var spotify = new Spotify({
     secret: process.env.SPOTIFY_SECRET
 })
     spotify.search({ type: 'track', query: input }, function (err, data) {
-    
+
         if (err) {
             return console.log('Error Occured' + err);
         }
@@ -27,7 +27,7 @@ var spotify = new Spotify({
 
 
 
-//for concerts
+//Bandsintown
 var omdb = (keys.omdb);
 var bandsintown = (keys.bansintown);
 
@@ -37,7 +37,7 @@ var fs = require("fs");
 var command = process.argv[2]
 var input = process.argv[3]
 
-//
+//OMDB//
 function getMovie(input) {
     console.log("inside movie-this")
     axios.get("http://www.omdbapi.com/?t=" + input + "&y=&plot=full&tomatoes=true&apikey=30b2a6af").then(function (response) {
@@ -55,8 +55,6 @@ function getMovie(input) {
     })
 }
 
-//launch spotify// 
-//key: 15dc33dbbe32430fa48192333cb9e8fe//
 function findSong(input) {
     console.log("inside spotify-this-song")
     //launch spotify// 
@@ -66,9 +64,10 @@ function findSong(input) {
     {
         console.log(`------------------`);
         console.log(`This is what I found`);
-        
+      
+    }
 
-
+    //Bandsintown
         function showConcert(input) {
             // console.log("inside concert-this")
             var concerts= response.data    
@@ -82,7 +81,7 @@ function findSong(input) {
             }
 
 
-        
+        //do what I say//
 
         function doThis() {
             fs.readFile("random.txt", "utfs", function(error , data){
@@ -111,6 +110,8 @@ function findSong(input) {
                 default:
                     console.log("LIRI doesn't know what you are talking about");
             }
+            
+            
         }
-        startProg(command, input)
-    
+            startProg(command, input);
+            
