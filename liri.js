@@ -27,11 +27,11 @@ function getMovie(input) {
         console.log("title: " + moviedata.Title)
         console.log("year: " + moviedata.Year)
         console.log("rated: " + moviedata.Rated)
-        console.log("realsed: " + moviedata.Released)
+        console.log("released: " + moviedata.Released)
         console.log("director: " + moviedata.Director)
-        console.log("Writer: " + moviedata.Writer)
-        console.log("Actors: " + moviedata.Actors)
-        console.log("Plot: " + moviedata.Plot)
+        console.log("writer: " + moviedata.Writer)
+        console.log("actors: " + moviedata.Actors)
+        console.log("plot: " + moviedata.Plot)
     })
 }
 
@@ -61,7 +61,7 @@ function showConcert(input) {
         var concerts = response.data
         console.log("Venue Name: " + concerts[0].venue.name);
         console.log("Venue Location: " + concerts[0].venue.city)
-        console.log("Date of Event: " + moment(concerts[0].datetime).format("MM/DD/YYYY hh:mm"))
+        console.log("Date of Event: " + moment(concerts[0].datetime).format("MM/DD/YYYY h:mm A"))
     }
     );
 
